@@ -15,7 +15,7 @@
   <meta name="description" content="用Hexo搭建的博客，托管于GitHub">
   <meta name="author" content="Lancel0t🍆">
   <meta name="keywords" content="">
-  <title>Lancel0t🍆写字的地方</title>
+  <title>Virtuality</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -35,7 +35,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Lancel0t🍆写字的地方</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Virtuality</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -50,31 +50,31 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/">主页</a>
           </li>
         
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">Archives</a>
+            <a class="nav-link" href="/archives/">归档</a>
           </li>
         
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">Categories</a>
+            <a class="nav-link" href="/categories/">分类</a>
           </li>
         
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">Tags</a>
+            <a class="nav-link" href="/tags/">标签</a>
           </li>
         
           
           
           <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/about/">关于</a>
           </li>
         
         
@@ -129,7 +129,51 @@
     
     
     <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/29/hello-world/">
+      <a href="/2019/10/Hexo%20+%20GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+        <p class="h4 index-header">Hexo + GitHub搭建博客</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Hexo + GitHub搭建博客前言之前在阿里云买了一个10元一个月的学生机，用WordPress搭了一个博客。但是后来想想还是没必要花这个钱，还是用Hexo来生成博客，放到GitHub上比较省钱。
+毕竟这样一分钱也不花
+1. 安装Hexo1.1 安装环境bashsudo apt update &amp;&amp; sudo apt upgrade -y 
+sudo apt install node npm git -y用以上的命令来更新系统并安装NodeJS、 npm和git bash。
+1.2 在wsl中安装Hexonpm install -g hexo-cli注意：npm中还同时存在hexo包，但不包含hexo server命令，在之后的直接渲染测试中会无法使用hexo s
+1.3 创建工作目录并初始化以下在家目录中创建一个名为hexo的文件夹作为工作目录并初始化
+mkdir ~/hexo
+cd ~/hexo
+hexo init期间hexo会从github下载并自动创建必须的目录结构，并且安装npm插件。过程中可能出现网络缓慢的问题，需要科学上网。
+结束后hexo会列出所有的组</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-29&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%8A%98%E8%85%BE">折腾</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/hello-world/">
         <p class="h4 index-header">Hello World</p>
         
         
@@ -240,10 +284,10 @@ More info: Deployment
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "一个无人打扰的写字板&nbsp;",
+        "Lancel0t🍆写字的地方&nbsp;",
       ],
-      cursorChar: "|",
-      typeSpeed: 70,
+      cursorChar: ">",
+      typeSpeed: 60,
       loop: false,
     });
     typed.stop();
