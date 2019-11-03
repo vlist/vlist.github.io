@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Hexo编写博客并修改主题</title>
+    <link href="undefined2019/11/%E8%87%AA%E5%AE%9A%E4%B9%89Hexo%E4%B8%BB%E9%A2%98/"/>
+    <url>2019/11/%E8%87%AA%E5%AE%9A%E4%B9%89Hexo%E4%B8%BB%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo编写博客并修改主题"><a href="#Hexo编写博客并修改主题" class="headerlink" title="Hexo编写博客并修改主题"></a>Hexo编写博客并修改主题</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>先前的文章已经提到了如何配置Hexo并且上传到Github</p><p><a href="http://blog.lancel0t.online/2019/11/Hexo%20+%20GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="noopener">Hexo + GitHub搭建博客</a></p><p>现在来讲讲怎么写博客</p><h2 id="1-生成文章"><a href="#1-生成文章" class="headerlink" title="1. 生成文章"></a>1. 生成文章</h2><h3 id="1-1-新建文章"><a href="#1-1-新建文章" class="headerlink" title="1.1 新建文章"></a>1.1 新建文章</h3><p>进入Hexo的工作文件夹</p><pre><code>hexo n &quot;文章标题&quot;</code></pre><h3 id="1-2-编辑文章"><a href="#1-2-编辑文章" class="headerlink" title="1.2 编辑文章"></a>1.2 编辑文章</h3><p>完成后会生成 <strong>./source/_post/文章标题.md</strong></p><p>文件内容为</p><pre><code>---title: 文章标题date: 2019-11-02 16:50:27tags: ---</code></pre><p>用自己喜欢的Markdown编辑器就可以编辑了，保存后可以用</p><pre><code>hexo s</code></pre><p>在 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 看到预览效果</p><h2 id="2-修改主题"><a href="#2-修改主题" class="headerlink" title="2. 修改主题"></a>2. 修改主题</h2><p>自动生成的博客自带了一个名为 <strong>landscape</strong> 的主题。如果觉得自带主题的效果还不错的话直接用就可以了，当然如果想要更好看的博客还需要自己修改主题</p><h3 id="2-1-下载主题"><a href="#2-1-下载主题" class="headerlink" title="2.1 下载主题"></a>2.1 下载主题</h3><p>在Hexo官方网站上就有很多很不错的主题了</p><p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes | Hexo</a></p><p>我在这个博客用的主题是</p><p><a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="noopener">fluid-dev/hexo-theme-fluid</a> </p><p>🌊 一款 Material Design 风格的 Hexo 主题 / An elegant Material-Design theme for Hexo </p><p>在<a href="https://github.com/fluid-dev/hexo-theme-fluid/releases" target="_blank" rel="noopener">此处</a>下载最新主题</p><h3 id="2-2-部署主题"><a href="#2-2-部署主题" class="headerlink" title="2.2 部署主题"></a>2.2 部署主题</h3><p>下载后解压，把文件夹名称改成fluid</p><p>文件夹内容应为</p><pre><code>Changelog.md  README.md     _config.yml         languages  pages    source  LICENSE       README_en.md  _static_prefix.yml  layout     scripts</code></pre><h3 id="2-3-应用主题"><a href="#2-3-应用主题" class="headerlink" title="2.3 应用主题"></a>2.3 应用主题</h3><p>打开工作文件夹下的 <strong>_config.yml</strong> </p><pre><code># Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: fluid</code></pre><p>将此处修改为 <strong>theme: fluid</strong> ，保存并刷新后即可在 <strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong> 看到预览效果。</p><h2 id="3-自定义博客"><a href="#3-自定义博客" class="headerlink" title="3. 自定义博客"></a>3. 自定义博客</h2><h3 id="3-1-修改博客信息"><a href="#3-1-修改博客信息" class="headerlink" title="3.1 修改博客信息"></a>3.1 修改博客信息</h3><p>打开工作文件夹下的 <strong>./_config.yml</strong> 里边可以修改一些博客的自定义参数</p><p>例如：</p><pre><code># Sitetitle: Virtualitysubtitle: Lancel0t🍆写字的地方description: 用Hexo搭建的博客，托管于GitHubkeywords:author: Lancel0t🍆language: zh-CNtimezone:</code></pre><p>此处可以修改博客站点的标题、副标题、描述、关键词、作者和语言时区，其它的选项同理。我们主要需要修改 <strong># Site</strong> 部分的内容。</p><p>其它大部分保持默认就能直接用了。</p><h3 id="3-2-修改主题选项"><a href="#3-2-修改主题选项" class="headerlink" title="3.2 修改主题选项"></a>3.2 修改主题选项</h3><p>安装好主题并成功在预览页面看到后，可以到工作文件夹下的 <strong>./theme/fluid/</strong> 下修改 <strong>_config.yml</strong> </p><p>本次实例使用的fluid主题在 <strong>_config.yml</strong> 中详细对各个选项进行了注释，大家根据注释按需修改即可。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>折腾</tag>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo + GitHub搭建博客</title>
     <link href="undefined2019/11/Hexo%20+%20GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>2019/11/Hexo%20+%20GitHub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
@@ -21,6 +48,8 @@
     <tags>
       
       <tag>折腾</tag>
+      
+      <tag>Hexo</tag>
       
     </tags>
     
