@@ -15,7 +15,7 @@
   <meta name="description" content="用Hexo搭建的博客，托管于GitHub">
   <meta name="author" content="Lancel0t🍆">
   <meta name="keywords" content="">
-  <title>Hexo + GitHub搭建博客 ~ Virtuality</title>
+  <title>用 Markdown 编写博客 ~ Virtuality</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -103,7 +103,7 @@
 
             
               <br>
-              <p class="mt-3">星期五, 十一月 1日 2019, 11:48 晚上</p>
+              <p class="mt-3">星期日, 十一月 3日 2019, 12:05 中午</p>
             
           </div>
 
@@ -124,44 +124,7 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto">
           <div class="markdown-body">
-            <h1 id="Hexo-GitHub搭建博客"><a href="#Hexo-GitHub搭建博客" class="headerlink" title="Hexo + GitHub搭建博客"></a>Hexo + GitHub搭建博客</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前在阿里云买了一个10元一个月的学生机，用WordPress搭了一个博客。但是后来想想还是没必要花这个钱，还是用Hexo来生成博客，放到GitHub上比较省钱。</p>
-<p><del>毕竟这样一分钱也不花</del></p>
-<h2 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1. 安装Hexo"></a>1. 安装Hexo</h2><h3 id="1-1-安装环境"><a href="#1-1-安装环境" class="headerlink" title="1.1 安装环境"></a>1.1 安装环境</h3><pre><code>bash</code></pre><pre><code>sudo apt update &amp;&amp; sudo apt upgrade -y 
-sudo apt install node npm git -y</code></pre><p>用以上的命令来更新系统并安装NodeJS、 npm和git bash。</p>
-<h3 id="1-2-在wsl中安装Hexo"><a href="#1-2-在wsl中安装Hexo" class="headerlink" title="1.2 在wsl中安装Hexo"></a>1.2 在wsl中安装Hexo</h3><pre><code>npm install -g hexo-cli</code></pre><p><em>注意：npm中还同时存在hexo模块，但不包含hexo server命令，在之后的直接渲染测试中会无法使用hexo s</em></p>
-<h3 id="1-3-创建工作目录并初始化"><a href="#1-3-创建工作目录并初始化" class="headerlink" title="1.3 创建工作目录并初始化"></a>1.3 创建工作目录并初始化</h3><p>以下在家目录中创建一个名为hexo的文件夹作为工作目录并初始化</p>
-<pre><code>mkdir ~/hexo
-cd ~/hexo
-hexo init</code></pre><p>期间hexo会从github下载并自动创建必须的目录结构，并且安装npm插件。过程中可能出现网络缓慢的问题，需要科学上网。</p>
-<p>结束后hexo会列出所有的组件和版本号</p>
-<pre><code>hexo s</code></pre><p>在工作文件夹中运行以上命令，hexo会在本地地址 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 创建一个http服务器，直接用浏览器打开就能看到博客的效果了。</p>
-<p>如果出现无法打开4000端口的情况可以参照这篇文章：<br><a href="http://blog.liuxianan.com/windows-port-bind.html" target="_blank" rel="noopener">http://blog.liuxianan.com/windows-port-bind.html</a></p>
-<h2 id="2-创建GitHub仓库"><a href="#2-创建GitHub仓库" class="headerlink" title="2. 创建GitHub仓库"></a>2. 创建GitHub仓库</h2><h3 id="2-1-注册GitHub账号"><a href="#2-1-注册GitHub账号" class="headerlink" title="2.1 注册GitHub账号"></a>2.1 注册GitHub账号</h3><p>直接打开 <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a>，填写好自己的信息就可以注册了</p>
-<p><img src="https://i.loli.net/2019/11/01/O3RLwkrtIdJZhEn.png" srcset="/img/loading.gif" alt="批注 2019-11-01 225624.png"></p>
-<h3 id="2-2-创建GitPages"><a href="#2-2-创建GitPages" class="headerlink" title="2.2 创建GitPages"></a>2.2 创建GitPages</h3><p><img src="https://i.loli.net/2019/11/01/SnbT8CfIpwVXulW.png" srcset="/img/loading.gif" alt="screenshot2.png"></p>
-<p>此处创建一个用来存放网站的Git仓库</p>
-<p><strong>注意：此处的仓库名一定为 你的名字.github.io</strong></p>
-<p><strong>否则无法直接在浏览器中访问</strong></p>
-<h3 id="2-3-创建SSH-Key"><a href="#2-3-创建SSH-Key" class="headerlink" title="2.3 创建SSH Key"></a>2.3 创建SSH Key</h3><p>虽然可以直接用用户名和密码来提交网页到Github，但是为了安全还是选择使用SSH key</p>
-<pre><code>cd ~/.ssh
-ls</code></pre><p>进入家目录中查看本地是否有已经生成的ssh key</p>
-<p>如果没有文件，则自己生成</p>
-<pre><code>ssh-keygen -t rsa -C &quot;邮件地址&quot;</code></pre><p>根据终端提示操作后会生成 <strong>~/.ssh/id_rsa.pub</strong> 文件，用记事本打开，复制内容</p>
-<p>打开Github -&gt; 个人设置 -&gt; Setting -&gt; SSH and GPG keys -&gt; Add New SSH key</p>
-<p>Title 可以自己填写，把<strong>id_rsa.pub</strong>的内容复制到Key里边</p>
-<p><img src="https://i.loli.net/2019/11/01/E6JyBokHt3pPSXa.png" srcset="/img/loading.gif" alt="screenshot3.png"></p>
-<p>提交之后等待一段时间，在wsl终端中执行</p>
-<pre><code>ssh git@github.com -T</code></pre><p>若有回显</p>
-<pre><code>Hi YourName! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre><p>说明你的SSH Key生效</p>
-<p>继续在终端中执行</p>
-<pre><code>git config --global user.name &quot;YourName&quot;// 你的github用户名
-git config --global user.email  &quot;example@example.com&quot;// 你的github注册邮箱</code></pre><h2 id="3-将页面提交到Github"><a href="#3-将页面提交到Github" class="headerlink" title="3. 将页面提交到Github"></a>3. 将页面提交到Github</h2><h3 id="3-1-更改Hexo配置文件"><a href="#3-1-更改Hexo配置文件" class="headerlink" title="3.1 更改Hexo配置文件"></a>3.1 更改Hexo配置文件</h3><p>首先，在确认SSH key已经正确配置的情况下，在Hexo的工作文件夹中打开 <strong>_config.yml</strong> ，找到depoly部分，如下修改</p>
-<pre><code>deploy:
-  type: git
-  repository: git@github.com:YourName/YourName.github.io.git
-  branch: master</code></pre><h3 id="3-2-安装hexo-deployer-git"><a href="#3-2-安装hexo-deployer-git" class="headerlink" title="3.2 安装hexo-deployer-git"></a>3.2 安装hexo-deployer-git</h3><pre><code>npm install hexo-deployer-git --save</code></pre><p>安装这个插件后，执行</p>
-<pre><code>hexo clean &amp;&amp; hexo g -d</code></pre><p>就能直接将生成的页面提交到Github，过几分钟后访问 YourName.github.io 就能看到你的博客啦</p>
-<p>关于如何在Hexo中写博客和修改主题配置之类的东西，之后有时间再写另外一篇吧</p>
+            <h1 id="用-Markdown-编写博客"><a href="#用-Markdown-编写博客" class="headerlink" title="用 Markdown 编写博客"></a>用 Markdown 编写博客</h1><pre><code>用 Hexo 生成的博客用Markdown语法来编写，还需要一个Markdown编辑器。</code></pre><h2 id="1-Markdown-语法编辑器"><a href="#1-Markdown-语法编辑器" class="headerlink" title="1. Markdown 语法编辑器"></a>1. Markdown 语法编辑器</h2><h3 id="1-1-Visual-Studio-Code-插件"><a href="#1-1-Visual-Studio-Code-插件" class="headerlink" title="1.1 Visual Studio Code + 插件"></a>1.1 Visual Studio Code + 插件</h3><pre><code>最近很多人都在使用 VSC 来搭配插件编写 Markdown 文件。打开 VSC，安装相关插件</code></pre><p><img src="https://i.loli.net/2019/11/03/yBdH21sqXcITYZ7.png" srcset="/img/loading.gif" alt="screenshot4.png"></p>
 
             <hr>
           </div>
@@ -321,7 +284,7 @@ git config --global user.email  &quot;example@example.com&quot;// 你的github�
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo + GitHub搭建博客&nbsp;",
+        "用 Markdown 编写博客&nbsp;",
       ],
       cursorChar: ">",
       typeSpeed: 60,

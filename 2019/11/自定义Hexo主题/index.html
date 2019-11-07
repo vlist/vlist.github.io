@@ -163,6 +163,7 @@ timezone:</code></pre><p>此处可以修改博客站点的标题、副标题、�
 <p>其它大部分保持默认就能直接用了。</p>
 <h3 id="3-2-修改主题选项"><a href="#3-2-修改主题选项" class="headerlink" title="3.2 修改主题选项"></a>3.2 修改主题选项</h3><p>安装好主题并成功在预览页面看到后，可以到工作文件夹下的 <strong>./theme/fluid/</strong> 下修改 <strong>_config.yml</strong> </p>
 <p>本次实例使用的fluid主题在 <strong>_config.yml</strong> 中详细对各个选项进行了注释，大家根据注释按需修改即可。</p>
+<p>==Highlight==</p>
 
             <hr>
           </div>
@@ -215,6 +216,32 @@ timezone:</code></pre><p>此处可以修改博客站点的标题、副标题、�
 <!-- Comments -->
 <div class="col-lg-7 mx-auto nopadding-md">
   <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'b128b3323b3b92747f53',
+      clientSecret: '0d5b860ca9ec96eecfd65af64d9108758ee43e7c',
+      repo: 'vlist.github.io',
+      owner: 'vlist',
+      admin: 'vlist',
+      id: md5(location.pathname),
+      language: 'zh-CN',
+      perPage: '15',
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
     
   </div>
 </div>
