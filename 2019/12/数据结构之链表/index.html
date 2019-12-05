@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="用Hexo搭建的博客，托管于GitHub">
+  <meta name="author" content="Lancel0t🍆">
+  <meta name="keywords" content="">
+  <title>数据结构：链表 ~ Virtuality</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+  
+  <link rel="stylesheet" href="/css/main.css"  >
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Virtuality</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">主页</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p class="mt-3">星期四, 十二月 5日 2019, 3:42 下午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="关于链表"><a href="#关于链表" class="headerlink" title="关于链表"></a>关于链表</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>链表是一种将数据存储到“结点”中的数据结构，需要存储多少个数据，就生成多少个“结点”，把这些“结点”用指针挂接起来。<br>为了表示每个数据元素ai与其直接后继元素ai+1之间的逻辑关系，对数据元素ai来说，除了存储其本身的信息之外，还需存储一个指示其直接后继的信息(即直接后继的存储位置)，这两部分信息组成数据元素ai的存储映像，称为结点。<br>结点中包括两个域，其中存储数据元素信息的域称为数据域；存储直接后继存储位置的域称为指针域。指针域中存储的信息称为指针。</p>
+</blockquote>
+<p>这些是书上的概念</p>
+<p>简单来说就是，定义一个结构体</p>
+<pre><code>struct LinkNode
+{
+    int data; //此处为数据域
+    struct LinkNode *next //此处为指针域
+};</code></pre><p>一个链表由头，结点和尾组成</p>
+<p>其实这个头就是指向第一个结点的指针，最后的尾则是最后一个结点的指向的下一个地址为 <code>NULL</code></p>
+<p><img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=0dfd76b003087bf469e15fbb93ba3c49/91ef76c6a7efce1b8d7e8131ae51f3deb58f65f7.jpg" srcset="/img/loading.gif" alt="LinkNode"></p>
+<p><del>百度百科的图蛮好的</del></p>
+<p>其实就是这玩意</p>
+<p>这个是单向链表，除此之外常见的还有</p>
+<ul>
+<li>双向链表<ul>
+<li>每个结点中保存了上一个结点的地址<code>*prev</code></li>
+</ul>
+</li>
+<li>单向循环链表<ul>
+<li>最后一个结点的<code>*next</code>指向头</li>
+</ul>
+</li>
+<li>双向循环链表<ul>
+<li>最后一个结点的<code>*next</code>指向头，每个结点中保存了上一个结点的地址<code>*prev</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="对链表的操作"><a href="#对链表的操作" class="headerlink" title="对链表的操作"></a>对链表的操作</h2><h3 id="插入新结点"><a href="#插入新结点" class="headerlink" title="插入新结点"></a>插入新结点</h3><p>利用<code>malloc()</code>动态申请内存作为新结点插入到链表中</p>
+<p>例如：</p>
+<pre><code>struct ListNode *add;
+add = (struct ListNode *)malloc(sizeof(struct ListNode));</code></pre><p>可以生成一个新结点，在生成后可对该新节点的数据域进行赋值操作，并插入链表中</p>
+<p>一般来说，对单链表插入新结点有三种方法<br><img src="https://gss0.bdstatic.com/-4o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=4eaa9bce728da9775a228e79d138937c/b3b7d0a20cf431adcfd51bc44a36acaf2fdd98c3.jpg" srcset="/img/loading.gif" alt="insert"></p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>例题：列表拼接（来源：<a href="https://www.pintia.cn" target="_blank" rel="noopener">PTA|程序设计类实验辅助教学平台</a>）</p>
+<p>本题要求实现一个合并两个有序链表的简单函数。链表结点定义如下：</p>
+<pre><code>struct ListNode {
+    int data;
+    struct ListNode *next;
+};</code></pre><p><strong>函数接口定义：</strong></p>
+<pre><code>struct ListNode *mergelists(struct ListNode *list1, struct ListNode *list2);</code></pre><p>其中list1和list2是用户传入的两个按data升序链接的链表的头指针；函数mergelists将两个链表合并成一个按data升序链接的链表，并返回结果链表的头指针。</p>
+<p><strong>裁判测试程序样例：</strong></p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct ListNode {
+    int data;
+    struct ListNode *next;
+};
+
+struct ListNode *createlist(); /*裁判实现，细节不表*/
+struct ListNode *mergelists(struct ListNode *list1, struct ListNode *list2);
+void printlist( struct ListNode *head )
+{
+     struct ListNode *p = head;
+     while (p) {
+           printf(&quot;%d &quot;, p-&gt;data);
+           p = p-&gt;next;
+     }
+     printf(&quot;\n&quot;);
+}
+
+int main()
+{
+    struct ListNode  *list1, *list2;
+
+    list1 = createlist();
+    list2 = createlist();
+    list1 = mergelists(list1, list2);
+    printlist(list1);
+
+    return 0;
+}
+
+/* 你的代码将被嵌在这里 */</code></pre><p><strong>输入样例：</strong></p>
+<pre><code>1 3 5 7 -1
+2 4 6 -1</code></pre><p><strong>输出样例：</strong></p>
+<pre><code>1 2 3 4 5 6 7 </code></pre><p><strong>我写的createlist()：</strong></p>
+<pre><code></code></pre><p><strong>我的答案：</strong></p>
+<pre><code>struct ListNode *mergelists(struct ListNode *list1, struct ListNode *list2)
+{
+    if (list1 == NULL)
+    {
+        return list2;
+    }
+    if (list2 == NULL)
+    {
+        return list1;
+    }
+
+    struct ListNode *checkpoint, *add, *last;
+
+    while (list2 != NULL)
+    {
+        add = list2;
+        list2 = list2-&gt;next;
+        if (add-&gt;data &lt; list1-&gt;data)
+        {
+            add-&gt;next = list1;
+            list1 = add;
+            continue;
+        }
+
+        checkpoint = list1;
+        while(checkpoint!=NULL)
+        {
+            if(checkpoint-&gt;next==NULL)
+            {
+                checkpoint-&gt;next = add;
+                add-&gt;next = NULL;
+                break;
+            }
+            if(checkpoint-&gt;next-&gt;data&gt;add-&gt;data)
+            {
+                add-&gt;next=checkpoint-&gt;next;
+                checkpoint-&gt;next = add;
+                break;
+            }
+            checkpoint=checkpoint-&gt;next;
+        }
+    }
+    return list1;
+}</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E6%8A%80%E6%9C%AF%20ACM%20%E7%AE%97%E6%B3%95%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">技术 ACM 算法 数据结构</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script><span id="lwlhitokoto"><script>lwlhitokoto()</script></span>
+    </div>
+  </div>
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'b128b3323b3b92747f53',
+      clientSecret: '0d5b860ca9ec96eecfd65af64d9108758ee43e7c',
+      repo: 'vlist.github.io',
+      owner: 'vlist',
+      admin: 'vlist',
+      id: md5(location.pathname),
+      language: 'zh-CN',
+      perPage: '15',
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+      <a href="http://beian.miit.gov.cn/" target="_blank"
+         rel="nofollow noopener">桂ICP备19002164号</a>
+      
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "数据结构：链表&nbsp;",
+      ],
+      cursorChar: ">",
+      typeSpeed: 60,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script>
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
+      $("#background").css("background-attachment", "scroll");
+    }
+  </script>
+
+</body>
+</html>
